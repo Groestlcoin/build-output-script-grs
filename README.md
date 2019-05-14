@@ -1,48 +1,39 @@
-# build-output-script
+# build-output-script-grs
 
-> Builds a P2PKH Bitcoin transaction output script
+> Builds a P2PKH Groestlcoin transaction output script
 
-[![Build Status](https://travis-ci.com/lukechilds/build-output-script.svg?branch=master)](https://travis-ci.com/lukechilds/build-output-script)
-[![Coverage Status](https://coveralls.io/repos/github/lukechilds/build-output-script/badge.svg?branch=master)](https://coveralls.io/github/lukechilds/build-output-script?branch=master)
-[![npm](https://img.shields.io/npm/v/build-output-script.svg)](https://www.npmjs.com/package/build-output-script)
-[![tippin.me](https://badgen.net/badge/%E2%9A%A1%EF%B8%8Ftippin.me/@lukechilds/F0918E)](https://tippin.me/@lukechilds)
-
-Builds a P2PKH Bitcoin transaction output script from an array of P2PKH addresses and amounts. Will also work with any Bitcoin derived cryptocurrencies with a single byte pubkey hash address prefix.
+Builds a P2PKH Groestlcoin transaction output script from an array of P2PKH addresses and amounts. Will also work with any Groestlcoin derived cryptocurrencies with a single byte pubkey hash address prefix.
 
 The output script is returned as a hex string and can be passed directly in to ledgerjs.
 
 ## Install
 
 ```shell
-npm install build-output-script
+npm install build-output-script-grs
 ```
 
 ## Usage
 
-Send 1 BTC to `1LukeQU5jwebXbMLDVydeH4vFSobRV9rkj`
+Send 1 GRS to `FWN1qdiRrymSR6jbpbanLYqZpjkEaZouHN`
 
 ```js
-const buildOutputScript = require('build-output-script');
+const buildOutputScript = require('build-output-script-grs');
 
-buildOutputScript([{address: '1LukeQU5jwebXbMLDVydeH4vFSobRV9rkj', value: 100000000}]);
-// '0100e1f505000000001976a914da6473ed373e08f46dd8003fca7ba72fbe9c555e88ac'
+const bos = buildOutputScript([{address: 'FWN1qdiRrymSR6jbpbanLYqZpjkEaZouHN', value: 100000000}]);
+
+console.log(bos)
+// '0100e1f505000000001976a9140d1b3823fd9e54aefec638c91cce4175c515dc2e88ac'
 ```
 
-Send 1 BTC to `1LukeQU5jwebXbMLDVydeH4vFSobRV9rkj` and 1 BTC to `1BitcoinEaterAddressDontSendf59kuE`
+Send 1 GRS to `FWN1qdiRrymSR6jbpbanLYqZpjkEaZouHN` and 1 GRS to `Fo5Xvgc58JMsMXsfwEY8TvjxX2x4Tdm5jf`
 
 ```js
-buildOutputScript([
-  {address: '1LukeQU5jwebXbMLDVydeH4vFSobRV9rkj', value: 100000000},
-  {address: '1BitcoinEaterAddressDontSendf59kuE', value: 100000000}
+const bos = buildOutputScript([
+  {address: 'FWN1qdiRrymSR6jbpbanLYqZpjkEaZouHN', value: 100000000},
+  {address: 'Fo5Xvgc58JMsMXsfwEY8TvjxX2x4Tdm5jf', value: 100000000}
 ]);
-// '0200e1f505000000001976a914da6473ed373e08f46dd8003fca7ba72fbe9c555e88ac00e1f505000000001976a914759d6677091e973b9e9d99f19c68fbf43e3f05f988ac'
-```
-
-Send 1 LTC to `Lf8hucmupbtenQ3VPdxvvJ8gTfAsaon2gf`
-
-```js
-buildOutputScript([{address: 'Lf8hucmupbtenQ3VPdxvvJ8gTfAsaon2gf', value: 100000000}]);
-// '0100e1f505000000001976a914da6473ed373e08f46dd8003fca7ba72fbe9c555e88ac'
+console.log(bos)
+// '0200e1f505000000001976a9140d1b3823fd9e54aefec638c91cce4175c515dc2e88ac00e1f505000000001976a914c47766d537ffc10c550a55e6dfe649363b07748688ac'
 ```
 
 ## API
@@ -67,7 +58,7 @@ A valid P2PKH address.
 
 Type: `Number`
 
-Value to send to `address` in satoshis.
+Value to send to `address` in gro.
 
 ## License
 

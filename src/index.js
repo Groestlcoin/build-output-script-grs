@@ -1,4 +1,4 @@
-const bs58check = require('bs58check');
+const bs58check = require('bs58grscheck');
 const {encode: numberToCompactSizeUInt} = require('varuint-bitcoin');
 const {OP_DUP, OP_HASH160, OP_EQUALVERIFY, OP_CHECKSIG} = require('bitcoin-ops');
 
