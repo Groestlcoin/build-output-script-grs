@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "bitcoin-ops": "^1.4.1",
-    "bs58grscheck": "https://github.com/Groestlcoin/bs58grscheck.git",
+    "bs58grscheck": "^2.1.2",
     "varuint-bitcoin": "^1.1.0"
   }
 }
